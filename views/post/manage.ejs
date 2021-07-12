@@ -1,0 +1,131 @@
+<style>
+  .row {
+    padding-top: 83px;
+  }
+
+
+  .details-label {
+    color: #94bb7b;
+    font-weight: 600;
+    font-family: system-ui;
+  }
+
+  .card {
+    border-radius: 17px;
+    position: relative;
+  }
+
+  .card-title {
+    font-size: 24px;
+    color: #1b8a7d;
+    font-weight: 900;
+
+  }
+
+  .btn-danger {
+    background: linear-gradient(90deg, rgb(216 76 76) 0%, rgb(216 70 70) -3%, rgb(215 83 83) 90%, rgb(216 77 77) 101%, rgb(215 81 81) 100%);
+    color: #ffffff;
+    display: inherit;
+    padding: 9px 31px 8px;
+    position: relative;
+    text-decoration: none;
+    transition: all 0.1s 0s ease-out;
+    border-radius: 25px;
+    margin: 12px;
+
+  }
+
+  .btn-edit {
+    background: linear-gradient(90deg, rgb(23 77 71) 0%, rgb(149 187 123) -3%, rgb(106 188 185) 90%, rgb(104 190 179) 101%, rgb(106 188 185) 100%);
+    color: #ffffff;
+    display: inherit;
+    padding: 9px 36px 8px;
+    position: relative;
+    text-decoration: none;
+    transition: all 0.1s 0s ease-out;
+    border-radius: 25px;
+    margin: 16px;
+    border: none;
+    font-size: 17px;
+  }
+
+
+  a.btn {
+    background: linear-gradient(90deg, rgb(23 77 71) 0%, rgb(149 187 123) -3%, rgb(106 188 185) 90%, rgb(104 190 179) 101%, rgb(106 188 185) 100%);
+    color: #ffffff;
+    display: inherit;
+    padding: 6px 30px 8px;
+    position: relative;
+    text-decoration: none;
+    transition: all 0.1s 0s ease-out;
+    border-radius: 25px;
+    margin: 12px;
+
+  }
+
+  .no-touch a.btn:hover {
+    background: #00a2ad;
+    box-shadow: 0px 8px 2px 0 rgba(0, 0, 0, 0.075);
+    transform: translateY(-2px);
+    transition: all 0.25s 0s ease-out;
+  }
+
+  .no-touch a.btn:active,
+  a.btn:active {
+    background: #008a93;
+    box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.25);
+    transform: translate3d(0, 1px, 0);
+    transition: all 0.025s 0s ease-out;
+  }
+
+  .card-body.a {
+    margin: 0 auto;
+  }
+
+
+  .list-group-item {
+    color: #174d47;
+  }
+
+  .card-img-top {
+    height: 214px;
+  }
+
+  .col-md-4,
+  .col-sm-6 {
+    margin-bottom: 15px;
+  }
+
+  #location_link {
+    color: #174d47;
+    text-decoration: none;
+  }
+</style>
+
+<div class="row container" style="margin: auto;">
+  <% user.posts.forEach(function(users){ %>
+  <div class="col-md-3 col-sm-6" data-aos="fade-up">
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" alt="Saudi image" src="<%=users.img%>" alt="" srcset="">
+      <div class="card-body">
+        <h5 class="card-title"><%= users.title %></h5>
+        <p class="card-text"><%= users.caption %></p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><span class="details-label">City:</span><%= users.city %></li>
+        <li class="list-group-item"><span class="details-label">location:</span><a
+            href="<%= users.location %>">Visit</a></li>
+        <li class="list-group-item"><span class="details-label">Rate:</span><%= users.rate %></li>
+      </ul>
+      <div class="card-body" style="margin: 0 auto;">
+        <form method="POST" action="/post/edit?id=<%= users._id %>&_method=POST">
+          <button class="btn-edit" type="submit">Edit Post</button>
+        </form>
+        <form method="POST" action="/post/delete?id=<%= users._id %>&_method=DELETE">
+          <button class="btn-danger" type="submit">Delete Post</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <% }) %>
+</div>

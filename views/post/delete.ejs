@@ -1,0 +1,353 @@
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Cabin', sans-serif;
+        direction: ltr;
+    }
+
+    .container {
+
+        padding-top: 80px;
+    }
+
+
+    option :disabled {
+        color: #aaa !important;
+    }
+
+
+
+
+    select.round {
+        background-image:
+            linear-gradient(45deg, transparent 50%, gray 50%),
+            linear-gradient(135deg, gray 50%, transparent 50%),
+            radial-gradient(#ddd 70%, transparent 72%);
+        background-position:
+            calc(100% - 20px) calc(1em + 2px),
+            calc(100% - 15px) calc(1em + 2px),
+            calc(100% - .5em) .5em;
+        background-size:
+            5px 5px,
+            5px 5px,
+            1.5em 1.5em;
+        background-repeat: no-repeat;
+    }
+
+    select.round:focus {
+        background-image:
+            linear-gradient(45deg, white 50%, transparent 50%),
+            linear-gradient(135deg, transparent 50%, white 50%),
+            radial-gradient(gray 70%, transparent 72%);
+        background-position:
+            calc(100% - 15px) 1em,
+            calc(100% - 20px) 1em,
+            calc(100% - .5em) .5em;
+        background-size:
+            5px 5px,
+            5px 5px,
+            1.5em 1.5em;
+        background-repeat: no-repeat;
+        border-color: green;
+        outline: 0;
+    }
+
+
+
+
+    .left {
+        overflow: hidden;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        -webkit-animation-name: left;
+        animation-name: left;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation-delay: 1s;
+        animation-delay: 1s;
+        margin: 0 auto;
+    }
+
+    .right {
+        flex: 1;
+        background-color: black;
+        transition: 1s;
+        background-image: url(https://www.cloud3dprint.com/assets/images/svg/components/wave-5-top.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .header>h2 {
+        margin: 0;
+        color: #184d47;
+        font-weight: 800;
+    }
+
+    .header>h4 {
+        margin-top: 10px;
+        font-weight: normal;
+        font-size: 15px;
+        color: rgba(0, 0, 0, 0.4);
+    }
+
+    .form {
+        max-width: 80%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-group {
+        padding-bottom: 13px;
+    }
+
+    .form-control {
+        padding: 0.40rem .780rem;
+        border-radius: 25px;
+    }
+
+    label {
+        padding-left: 10px;
+        font-size: 19px;
+    }
+
+    ::placeholder {
+        color: rgb(170, 170, 170) !important;
+    }
+
+
+    .form>p {
+        text-align: right;
+    }
+
+    .form>p>a {
+        color: #000;
+        font-size: 14px;
+    }
+
+    .form-field {
+        height: 46px;
+        padding: 0 16px;
+        border: 2px solid #ddd;
+        border-radius: 4px;
+        font-family: "Rubik", sans-serif;
+        outline: 0;
+        transition: 0.2s;
+        margin-top: 20px;
+        border-radius: 25px;
+    }
+
+    .form-field:focus {
+        border-color: #0f7ef1;
+    }
+
+    .form>button {
+        padding: 12px 10px;
+        border: 0;
+        background: linear-gradient(90deg, rgb(23 77 71) 0%, rgb(149 187 123) -3%, rgb(106 188 185) 90%, rgb(104 190 179) 101%, rgb(106 188 185) 100%);
+        ;
+        border-radius: 3px;
+        margin-top: 10px;
+        color: #fff;
+        letter-spacing: 1px;
+        font-family: 'Cabin', sans-serif;
+        border-radius: 25px;
+    }
+
+    .animation {
+        -webkit-animation-name: move;
+        animation-name: move;
+        -webkit-animation-duration: 0.4s;
+        animation-duration: 0.4s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation-delay: 2s;
+        animation-delay: 2s;
+    }
+
+    .a1 {
+        -webkit-animation-delay: 0.4s;
+        animation-delay: 0.4s;
+    }
+
+    .a2 {
+        -webkit-animation-delay: 0.4s;
+        animation-delay: 0.4s;
+    }
+
+    .a3 {
+        -webkit-animation-delay: 2.2s;
+        animation-delay: 2.2s;
+    }
+
+    .a4 {
+        -webkit-animation-delay: 2.3s;
+        animation-delay: 2.3s;
+    }
+
+    .a5 {
+        -webkit-animation-delay: 2.4s;
+        animation-delay: 2.4s;
+    }
+
+    .a6 {
+        -webkit-animation-delay: 0.4s;
+        animation-delay: 0.4s;
+    }
+
+    @-webkit-keyframes move {
+        0% {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-40px);
+        }
+
+        100% {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes move {
+        0% {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-40px);
+        }
+
+        100% {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    }
+
+    @-webkit-keyframes left {
+        0% {
+            opacity: 0;
+            width: 0;
+        }
+
+        100% {
+            opacity: 1;
+            padding: 20px 40px;
+            width: 840px;
+        }
+    }
+
+    @keyframes left {
+        0% {
+            opacity: 0;
+            width: 0;
+        }
+
+        100% {
+            opacity: 1;
+            padding: 20px 40px;
+            width: 840px;
+        }
+    }
+
+
+
+    /*Mobile*/
+    @media (max-width: 767.98px) {
+
+        .left {
+            padding-top: 42px;
+            padding-bottom: 64px;
+            overflow: hidden;
+            /* display: grid; */
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center;
+            /* -webkit-animation-name: left; */
+            animation-name: auto;
+            /* -webkit-animation-duration: 1s; */
+            /* animation-duration: 1s; */
+            /* -webkit-animation-fill-mode: both; */
+            animation-fill-mode: both;
+            -webkit-animation-delay: 0.4s;
+            animation-delay: 1s;
+            margin: 0 auto;
+        }
+
+    }
+</style>
+
+
+<div class="container">
+    <div class="left">
+        <div class="header">
+            <h2 class="animation a1">Share your Trip</h2>
+            <h4 class="animation a2">Post about your visited places around Saudi</h4>
+        </div>
+
+        <form class="form" method="POST" action="">
+            <div class="form-group">
+                <label>Title</label>
+                <input name="title" type="text" class="form-control" placeholder="Post Title" required=""
+                    oninvalid="this.setCustomValidity('Please add post title')" oninput="setCustomValidity('')">
+            </div>
+
+            <div class="form-group">
+                <label>Upload Image</label>
+                <input name="img" type="text" class="form-control" placeholder="Image URL" required=""
+                    oninvalid="this.setCustomValidity('Please upload post image')" oninput="setCustomValidity('')">
+            </div>
+
+            <div class="form-group">
+                <label>Caption</label>
+                <input name="caption" type="text" class="form-control" maxlength="30" placeholder="Talk about your trip"
+                    required="" oninvalid="this.setCustomValidity('Please add post caprion')"
+                    oninput="setCustomValidity('')">
+            </div>
+
+            <div class="form-group">
+                <label>Location</label>
+                <input name="location" type="url" class="form-control" placeholder="Location url" required=""
+                    oninvalid="this.setCustomValidity('Please add post location')" oninput="setCustomValidity('')">
+            </div>
+
+            <div class="form-group">
+                <label>City</label>
+                <select name="city" type="text" class="form-control round" placeholder="city" required=""
+                    oninvalid="this.setCustomValidity('Please select post city')" oninput="setCustomValidity('')">
+                    <option disabled selected>Select your city</option>
+                    <option value="Riyadh">Riyadh</option>
+                    <option value="Qassim">Qassim</option>
+                    <option value="Yanbu">Yanbu</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Rate</label>
+                <select name="rate" type="text" class="form-control round" placeholder="city" required=""
+                    oninvalid="this.setCustomValidity('Please select a trip rate')" oninput="setCustomValidity('')">
+                    <option disabled selected>Rate your trip</option>
+                    <option value="⭐️">⭐️</option>
+                    <option value="⭐️⭐️">⭐️⭐️</option>
+                    <option value="⭐️⭐️⭐️">⭐️⭐️⭐️</option>
+                    <option value="⭐️⭐️⭐️⭐️">⭐️⭐️⭐️⭐️</option>
+                    <option value="⭐️⭐️⭐️⭐️⭐️">⭐️⭐️⭐️⭐️⭐️</option>
+                </select>
+                <!-- <input name="rate" type="text" class="form-control" maxlength = "1" placeholder="Rate Place from 1 to 5" required=""
+                    oninvalid="this.setCustomValidity('Please post rating')" oninput="setCustomValidity('')"> -->
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Agree on <a href="#">Terms</a> and <a
+                        href="#">conditions</a></label></div>
+            <button type="submit" class="animation a6" value="upload" required>Submit</button>
+        </form>
+    </div>
+    <div class="right"></div>
+</div>
